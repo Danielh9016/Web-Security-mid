@@ -13,6 +13,17 @@ while ($row = mysqli_fetch_assoc($result2)) {
 	echo '<img src='.$row3['head'].' width="50" height="50">';
 	echo "<br>名字：" . $row['username'];
 	$name = $row['username'];
+	$row['context'] = str_replace("[b]","<b>",$row['context']);
+    $row['context'] = str_replace("[/b]","</b>",$row['context']);
+    $row['context'] = str_replace("[i]","<i>",$row['context']);
+    $row['context'] = str_replace("[/i]","</i>",$row['context']);
+    $row['context'] = str_replace("[u]","<u>",$row['context']);
+    $row['context'] = str_replace("[/u]","</u>",$row['context']);
+    $row['context'] = str_replace("[img]","<img src=\"",$row['context']);
+    $row['context'] = str_replace("[/img]","\" width=\"50\" height=\"50\">",$row['context']);
+    $row['context'] = str_replace("[/color]","</span>",$row['context']);
+    $row['context'] = str_replace("[color=","<span style=\"color: ",$row['context']);
+    $row['context'] = str_replace("]",";\">",$row['context']);
 	echo "<br>留言：" . nl2br($row['context']) . "<br>";
 	if ($row['path'] != null) { 
 		echo "附加檔案：";
