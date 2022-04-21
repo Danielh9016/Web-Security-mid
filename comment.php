@@ -15,7 +15,7 @@
         $filetype = $_FILES['file']['type'];
         $filesize = $_FILES['file']['size'];
         $filetmp  = $_FILES['file']['tmp_name'];
-        $dest = "./upload/" . $_FILES['file']['name'];
+        $dest = "./upload/file/" . $_FILES['file']['name'];
         move_uploaded_file($filetmp, $dest);
         $sql4 = "INSERT comment(no, username, context, datetime, path) VALUES (null, '$username', '$context', now(), '$filename')";
      }

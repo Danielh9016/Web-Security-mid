@@ -16,7 +16,7 @@ try {
     $row = mysqli_fetch_array($result);   
     
     if($row ){
-        
+        $_SESSION['admin']=$row['admin'];
         echo "<script>
         setTimeout(function(){window.location.href='index2.php';},0);
         </script>";

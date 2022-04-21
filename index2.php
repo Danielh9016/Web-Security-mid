@@ -11,7 +11,7 @@ $result = mysqli_query($link, $sql);
 while ($row = mysqli_fetch_assoc($result)) {
 	echo "<b>" . nl2br($row['text']) . "</b>    <br>";
 }
-if($username == '123'){
+if($_SESSION['admin'] == 1){
 	echo ' 
 		<br><a href="admin.php">你的身分是管理員，你可以點進來</a><br>';
 }   
@@ -104,7 +104,7 @@ while ($row = mysqli_fetch_assoc($result3)) {
 	if ($row['path'] != null) { 
 		echo "附加檔案：";
 		echo ' 
-		<a href="upload/'. $row['path'] .'">'. $row['path'] .'<br></a>';
+		<a href="upload/file/'. $row['path'] .'">'. $row['path'] .'<br></a>';
 	}
 	if ($username == $row['username']) { 
 		echo ' 

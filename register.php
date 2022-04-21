@@ -13,7 +13,7 @@ $result=mysqli_query($link,$sql);
 try {
     $row = mysqli_fetch_array($result);   
     if(!$row ){
-        $sql2 = "insert users(id,username,password) values (null,'$username','$password')";
+        $sql2 = "insert users(id,username,password,admin) values (null,'$username','$password',0)";
 		mysqli_query($link, $sql2);
         mysqli_close($link);
         if (!$result) {

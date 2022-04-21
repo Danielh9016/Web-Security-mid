@@ -1,6 +1,6 @@
 <?php
 session_start();
-if($_SESSION['username']=="" || $_SESSION['username']!="123"){
+if($_SESSION['admin']==0){
 	header("Location: index.php");
 }	
  echo "好我知道你是管理員了然後咧";

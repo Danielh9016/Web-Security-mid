@@ -30,7 +30,7 @@ while ($row = mysqli_fetch_assoc($result2)) {
 	if ($row['path'] != null) { 
 		echo "附加檔案：";
 		echo ' 
-		<a href="upload/'. $row['path'] .'">'. $row['path'] .'<br></a>';
+		<a href="upload/file/'. $row['path'] .'">'. $row['path'] .'<br></a>';
 	}
 	echo "Time：" . $row['datetime'] . "<br>";
 	echo "<hr>";

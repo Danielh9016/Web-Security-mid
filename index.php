@@ -1,5 +1,6 @@
 <?php
 unset($_SESSION['username']);
+unset($_SESSION['admin']);
 echo '這只是個期中留言板project沒什麼好看的 真的<br>';
 ?>
 
