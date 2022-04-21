@@ -24,6 +24,8 @@ while ($row = mysqli_fetch_assoc($result2)) {
     $row['context'] = str_replace("[/color]","</span>",$row['context']);
     $row['context'] = str_replace("[color=","<span style=\"color: ",$row['context']);
     $row['context'] = str_replace("]",";\">",$row['context']);
+	$row['context'] = str_replace("<script>","",$row['context']);
+    $row['context'] = str_replace("</script>","",$row['context']);
 	echo "<br>留言：" . nl2br($row['context']) . "<br>";
 	if ($row['path'] != null) { 
 		echo "附加檔案：";

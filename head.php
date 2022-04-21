@@ -4,14 +4,14 @@ if( $_FILES['file']['name']=="" ){
     header("Location: index2.php");
 }
 require_once('config.php');
-$filename=$_FILES['file']['name'];
+$filename = $_FILES['file']['name'];
 $tmpname=$_FILES['file']['tmp_name'];
 $filetype=$_FILES['file']['type'];
 $filesize=$_FILES['file']['size'];   
-$dest = "./upload/" . $_FILES['file']['name'];
+$dest = "./upload/" . $_SESSION['username'] . ".jpg";
 move_uploaded_file($tmpname, $dest); 
     $username = $_SESSION['username'];
-    $tmp = "./upload/" . $filename;  
+    $tmp = "./upload/" . $username . ".jpg";  
     $sql = "UPDATE `users` SET `head` = '$tmp' WHERE `username` = '$username' ";
     $result=mysqli_query($link,$sql);
     if (!$result) {

@@ -11,16 +11,20 @@ $result = mysqli_query($link, $sql);
 while ($row = mysqli_fetch_assoc($result)) {
 	echo "<b>" . nl2br($row['text']) . "</b>    <br>";
 }
-
+if($username == '123'){
+	echo ' 
+		<br><a href="admin.php">你的身分是管理員，你可以點進來</a><br>';
+}   
 echo "登入帳號：" . $username;
 $sql2="select * from `users` where `username` = '$username'";
-            
+      
 $result2 = mysqli_query($link, $sql2);      
 $row2 = mysqli_fetch_assoc($result2);
+ 
 ?>
 
 <img src="<?php echo $row2['head'];?>" width="50" height="50">
-
+  
 <form method="POST" action="index.php">
     <button  type="submit">登出</button>
 </form>
@@ -77,10 +81,7 @@ $sql3 = "select * from comment";
 $result3 = mysqli_query($link, $sql3);
 
 
-if($username == '123'){
-	echo ' 
-		<a href="admin.php">你的身分是管理員，你可以點進來</a><br>';
-}
+
 while ($row = mysqli_fetch_assoc($result3)) {
 	$tmp = $row['username'];
 	$sql4 = "select * from `users` where `username` = '$tmp'";

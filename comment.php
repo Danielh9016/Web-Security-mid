@@ -4,18 +4,11 @@
     }
     require_once('config.php');
 	$context = $_POST['context'];
-    $context = str_replace("[b]","<b>",$context);
-    $context = str_replace("[/b]","</b>",$context);
-    $context = str_replace("[i]","<i>",$context);
-    $context = str_replace("[/i]","</i>",$context);
-    $context = str_replace("[u]","<u>",$context);
-    $context = str_replace("[/u]","</u>",$context);
-    $context = str_replace("[img]","<img src=\"",$context);
-    $context = str_replace("[/img]","\" width=\"50\" height=\"50\">",$context);
-    $context = str_replace("[/color]","</span>",$context);
-    $context = str_replace("[color=","<span style=\"color: ",$context);
-    $context = str_replace("]",";\">",$context);
-    
+    $context = str_replace("<","",$context);
+    $context = str_replace(">","",$context);
+    $context = str_replace("'","",$context);
+    $context = str_replace("\"","",$context);
+    $context = str_replace("\\","",$context);
     $username = $_SESSION['username'];
     if( isset($_POST['context']) ||  $_POST['context'] != "" ){
         $filename = $_FILES['file']['name'];
