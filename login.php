@@ -6,7 +6,16 @@ if( !isset($_POST['username']) || !isset($_POST['password']) || $_POST['username
 $username = $_POST['username'];
 $_SESSION['username'] = $_POST['username'];
 $password = $_POST['password'];
-
+$username = str_replace("'","",$username);
+$password = str_replace("'","",$password);
+$username = str_replace("\"","",$username);
+$password = str_replace("\"","",$password);
+$username = str_replace("<","",$username);
+$password = str_replace("<","",$password);
+$username = str_replace(">","",$username);
+$password = str_replace(">","",$password);
+$username = str_replace("#","",$username);
+$password = str_replace("#","",$password);
 require_once('config.php');
 $sql = "SELECT * FROM `users` WHERE `username` = '$username' and `password` = '$password';";
 
